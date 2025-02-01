@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6c90355-5a99-4707-9379-5b7eee238646" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img/profile1.png" afterDir="false" />
+    <list default="true" id="d6c90355-5a99-4707-9379-5b7eee238646" name="Changes" comment="updated image name">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +41,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Munashe\Desktop\Munashe Kasumba Portifolio\img" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -58,9 +63,22 @@
       <updated>1738409006026</updated>
       <workItem from="1738409012216" duration="1939000" />
     </task>
+    <task id="LOCAL-00001" summary="updated image name">
+      <option name="closed" value="true" />
+      <created>1738411720578</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738411720579</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated image name" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated image name" />
   </component>
 </project>
