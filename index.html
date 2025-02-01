@@ -1,0 +1,82 @@
+git init
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munashe Kasumba Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .hero { background-color: #0e2433; color: white; padding: 50px 0; text-align: center; }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-top: 20px;
+        }
+        .section { padding: 50px 0; }
+        .card { transition: 0.3s; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card:hover { transform: scale(1.05); }
+        .about-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="img/profile.png" alt="Munashe Kasumba" class="profile-img">
+        <h1>Hi, I'm Munashe Jimfish Kasumba</h1>
+        <p>Java Backend Developer | Spring Boot | PostgreSQL | Keycloack</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="container section">
+        <div class="about-container">
+            <h2>About Me</h2>
+            <p>I'm a passionate Java Developer specializing in backend development using Spring Boot, PostgreSQL, and REST APIs.</p>
+            <p>Junior Java Developer with 1 year of experience in backend development using Java and the Spring Boot framework. Skilled in the analysis, design, implementation, integration, testing, and maintenance of scalable applications.</p>
+            <p>Proficient in developing RESTful APIs, managing databases like MySQL and PostgreSQL, and deploying applications on local servers. Currently pursuing a Bachelor of Science in Data Science and Informatics, with a strong focus on software development.</p>
+            <p>Passionate about building innovative and efficient solutions while collaborating with cross-functional teams.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="container section">
+        <h2>Projects</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Bank Management Backend</h5>
+                        <p class="card-text">A REST API built with Spring Boot and PostgreSQL.</p>
+                        <a href="https://github.com/kasumbamunashe/Bank-management-app" class="btn btn-primary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Management Backend</h5>
+                        <p class="card-text">Spring Boot API for handling students management.</p>
+                        <a href="https://github.com/kasumbamunashe/students-crud-management" class="btn btn-primary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container section">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:your.email@example.com"> jfish4835@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/yourgithub">https://github.com/kasumbamunashe</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin">linkedin.com/in/yourlinkedin</a></p>
+    </section>
+</body>
+</html>
