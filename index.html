@@ -3,95 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munashe Kasumba - Portfolio</title>
+    <title>Munashe Kasumba - Full Stack Developer & Data Scientist</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- AOS Library for Animations -->
+    <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #ec4899;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --success-color: #0ea5e9;
+            --warning-color: #f59e0b;
+            --info-color: #3b82f6;
+            --text-color: #1e293b;
+            --text-light: #64748b;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--dark-color) 0%, #1e293b 100%);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
         .hero {
-            background-color: #0e2433;
+            background: var(--gradient-dark);
             color: white;
-            padding: 100px 0;
+            padding: 140px 0 120px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.8;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 3px solid white;
-            margin-top: 20px;
+            border: 4px solid rgba(255,255,255,0.2);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 20px auto 30px;
+            opacity: 0.9;
+            line-height: 1.8;
         }
 
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
         }
 
         .card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background-color: white;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .card-img-top {
+            transform: scale(1.05);
         }
 
         .about-container {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 10px;
+            height: 100%;
+            width: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: -28px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-info i {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: #0e2433;
+            background: var(--gradient-dark);
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 70px 0 30px;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 12px;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px) scale(1.1);
         }
 
         .back-to-top {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             z-index: 1000;
-            border-radius: 50%;
             width: 50px;
             height: 50px;
-            font-size: 18px;
-        }
-
-        .social-links a {
+            border-radius: 12px;
+            background: var(--gradient-primary);
             color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: #007bff;
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            background: white !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: var(--dark-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #f1f5f9;
+        }
+
+        .progress-bar {
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(0);
+        }
+
+        .btn-outline-light {
+            border-width: 2px;
+            font-weight: 500;
+            padding: 12px 28px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-color) !important;
+            transform: translateY(-3px);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 14px 18px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .project-card .card-body {
+            padding: 25px;
+        }
+
+        .project-card .card-footer {
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+
+        .project-card .card-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .project-card .card-text {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .section-bg {
+            background-color: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgxNSLDIzLDQyLDAuMDMpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .section-bg .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .about-container {
+                padding: 30px;
+            }
+
+            footer {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Munashe Kasumba</a>
+            <a class="navbar-brand fw-bold" href="#">Munashe Kasumba</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -100,6 +510,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -108,107 +519,327 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <img src="img/profile1.png" alt="Munashe Kasumba" class="profile-img">
-        <h1 class="mt-3">Hi, I'm Munashe Jimfish Kasumba</h1>
-        <p class="lead">Java  Developer | Spring Boot | PostgreSQL | Keycloak</p>
-        <p class="tagline">Building scalable and efficient  solutions to power modern applications.</p>
+        <div class="hero-content">
+            <img src="img/profile1.png" alt="Munashe Kasumba" class="profile-img">
+            <h1 class="display-4 fw-bold mt-3">Munashe Jimfish Kasumba</h1>
+            <p class="lead fs-3">Full Stack Developer | Data Scientist</p>
+            <p class="tagline">Building intelligent solutions that bridge software engineering and data science with a focus on scalable, secure systems and predictive analytics.</p>
+            <div class="mt-4">
+                <a href="#projects" class="btn btn-light btn-lg me-3">View My Work</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->
     <main class="container">
         <!-- About Section -->
-        <section id="about" class="my-5" data-aos="fade-up">
-    <div class="about-container">
-        <h2 class="mb-4">About Me</h2>
-        <p>
-            I am a passionate and detail-oriented Java Backend Developer with a strong foundation in building scalable and efficient solutions for modern applications. With expertise in <strong>Spring Boot</strong>, <strong>PostgreSQL</strong>, and <strong>RESTful APIs</strong>, I specialize in designing and implementing robust backend systems that power seamless user experiences.
-        </p>
-        <p>
-            Over the past year, I have honed my skills in software development, focusing on the analysis, design, and implementation of high-performance applications. My experience includes developing secure and scalable APIs, managing relational databases like <strong>MySQL</strong> and <strong>PostgreSQL</strong>, and deploying applications on local servers. I am also proficient in using tools such as <strong>Docker</strong>, <strong>Postman</strong>, and <strong>Keycloak</strong> to streamline development and deployment processes.
-        </p>
-        <p>
-            Currently pursuing a <strong>Bachelor of Science in Data Science and Informatics</strong>, I bring a unique blend of technical expertise and analytical thinking to every project. My ability to collaborate effectively with cross-functional teams, coupled with my strong problem-solving skills, allows me to deliver innovative solutions that meet both user and business needs.
-        </p>
-        <p>
-            I am deeply committed to continuous learning and staying ahead of industry trends. Whether it's optimizing database performance, enhancing API security, or exploring new technologies, I am always eager to tackle challenges and contribute to the success of impactful projects.
-        </p>
-    </div>
-</section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="my-5" data-aos="fade-up">
-    <h2 class="mb-4">Skills</h2>
-    <div class="row">
-        <!-- Backend Development -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Backend Development</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-check text-primary me-2"></i>Java</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Spring Boot</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>REST APIs</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>PostgreSQL</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>MySQL</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tools & Technologies -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Tools & Technologies</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-check text-primary me-2"></i>Git</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Docker</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Keycloak</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Postman</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>IntelliJ IDEA</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Soft Skills</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-check text-primary me-2"></i>Problem-solving</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Collaboration</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Communication</li>
-                        <li><i class="fas fa-check text-primary me-2"></i>Agile Development</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="my-5" data-aos="fade-up">
-            <h2 class="mb-4">Projects</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="img/bank-management.png" class="card-img-top" alt="Bank Management Backend">
-                        <div class="card-body">
-                            <h5 class="card-title">Bank Management Backend</h5>
-                            <p class="card-text">A REST API built with Spring Boot and PostgreSQL.</p>
-                            <a href="https://github.com/kasumbamunashe/Bank-management-app" class="btn btn-primary">View on GitHub</a>
+        <section id="about" class="section">
+            <div class="about-container" data-aos="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="lead">
+                            I'm a passionate developer with expertise in both backend systems and data science, specializing in creating robust, scalable solutions powered by intelligent algorithms.
+                        </p>
+                        <p>
+                            With a strong foundation in <strong>Java Spring Boot</strong> and <strong>Python</strong>, I build high-performance applications that leverage the best of both worlds. My journey in technology combines software engineering principles with data-driven decision making.
+                        </p>
+                        <p>
+                            As a <strong>Data Science graduate</strong> from Midlands State University, I bring a unique perspective to problem-solving, merging analytical thinking with practical development skills. My work focuses on creating systems that are not just functional but also intelligent and adaptive.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#contact" class="btn btn-primary me-2">Hire Me</a>
+                            <a href="#" class="btn btn-outline-primary">Download CV</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5>Full Stack Developer</h5>
+                                <p class="text-muted">2022 - Present | Various Projects</p>
+                                <p>Developed RESTful APIs, microservices, and web applications with Spring Boot, Flask, PostgreSQL, and Docker.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Data Science Graduate</h5>
+                                <p class="text-muted">2021 - 2024 | Midlands State University</p>
+                                <p>Bachelor of Science in Data Science and Informatics with focus on ML, statistical modeling, and data engineering.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Technical Expertise</h5>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Java</span>
+                                    <span class="tech-item">Spring Boot</span>
+                                    <span class="tech-item">Python</span>
+                                    <span class="tech-item">Flask</span>
+                                    <span class="tech-item">PostgreSQL</span>
+                                    <span class="tech-item">Docker</span>
+                                    <span class="tech-item">Keycloak</span>
+                                    <span class="tech-item">Machine Learning</span>
+                                    <span class="tech-item">TensorFlow</span>
+                                    <span class="tech-item">Scikit-learn</span>
+                                    <span class="tech-item">REST APIs</span>
+                                    <span class="tech-item">Microservices</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="img/student-management.png" class="card-img-top" alt="Student Management Backend">
-                        <div class="card-body">
-                            <h5 class="card-title">Student Management Backend</h5>
-                            <p class="card-text">Spring Boot API for handling student management.</p>
-                            <a href="https://github.com/kasumbamunashe/students-crud-management" class="btn btn-primary">View on GitHub</a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section section-bg">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">My Skills</h2>
+                <div class="row">
+                    <!-- Backend Development -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-server me-2" style="color: var(--primary-color);"></i> Backend Development
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <h6>Java / Spring Boot</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Python / Flask</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>RESTful APIs</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Database Design</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 87%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Science -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-chart-line me-2" style="color: var(--primary-color);"></i> Data Science
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <h6>Python (Pandas, NumPy)</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 93%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Machine Learning</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Data Visualization</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Statistical Analysis</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 83%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tools & Technologies -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-tools me-2" style="color: var(--primary-color);"></i> Tools & Technologies
+                            </div>
+                            <div class="card-body">
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Git</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 93%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>PostgreSQL/MySQL</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>CI/CD</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Featured Projects</h2>
+                <div class="row">
+                    <!-- Smart School Management System -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card project-card h-100">
+                            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Smart School Management System">
+                            <div class="card-body">
+                                <h5 class="card-title">Smart School Management System</h5>
+                                <span class="project-tag">Full Stack</span>
+                                <span class="project-tag">Spring Boot</span>
+                                <span class="project-tag">Keycloak</span>
+                                <p class="card-text">A comprehensive school management platform with role-based access for admins, teachers, students, and parents. Features include student info management, attendance tracking, performance analytics, and secure login.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Java</span>
+                                    <span class="tech-item">Spring Boot</span>
+                                    <span class="tech-item">PostgreSQL</span>
+                                    <span class="tech-item">Keycloak</span>
+                                    <span class="tech-item">JPA</span>
+                                    <span class="tech-item">Spring Security</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/kasumbamunashe/Smart-School-Management-System-SSMS-" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Occupational Injury Risk Predictor -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card project-card h-100">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Occupational Injury Risk Predictor">
+                            <div class="card-body">
+                                <h5 class="card-title">Occupational Injury Risk Predictor</h5>
+                                <span class="project-tag">Machine Learning</span>
+                                <span class="project-tag">Flask</span>
+                                <span class="project-tag">Predictive Analytics</span>
+                                <p class="card-text">A Flask web app that uses machine learning to predict workplace injury risks and provide safety recommendations based on employee and job-related data.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Python</span>
+                                    <span class="tech-item">Flask</span>
+                                    <span class="tech-item">Scikit-learn</span>
+                                    <span class="tech-item">Pandas</span>
+                                    <span class="tech-item">Data Analysis</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/kasumbamunashe/occupational-injury-risk-predictor" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank Churn Analyzer -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card project-card h-100">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Bank Churn Analyzer">
+                            <div class="card-body">
+                                <h5 class="card-title">Bank Churn Analyzer</h5>
+                                <span class="project-tag">Data Science</span>
+                                <span class="project-tag">Flask</span>
+                                <span class="project-tag">Dashboard</span>
+                                <p class="card-text">Flask web app for predicting customer churn with analytics dashboard, batch uploads, user authentication, and SQLite database support.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Python</span>
+                                    <span class="tech-item">Flask</span>
+                                    <span class="tech-item">Machine Learning</span>
+                                    <span class="tech-item">SQLite</span>
+                                    <span class="tech-item">Pandas</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/kasumbamunashe/bank-churn-analyzer" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Crop Recommendation System -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card project-card h-100">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Crop Recommendation System">
+                            <div class="card-body">
+                                <h5 class="card-title">Smart Farming System</h5>
+                                <span class="project-tag">AI</span>
+                                <span class="project-tag">Computer Vision</span>
+                                <span class="project-tag">Agriculture</span>
+                                <p class="card-text">Recommends optimal crops, detects pests/diseases via images, suggests treatments, optimizes inputs, and improves with farmer feedback.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Python</span>
+                                    <span class="tech-item">TensorFlow</span>
+                                    <span class="tech-item">Computer Vision</span>
+                                    <span class="tech-item">Flask</span>
+                                    <span class="tech-item">OpenCV</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/kasumbamunashe/crop-recommendation-and-management" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Cleaning System -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card project-card h-100">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Data Cleaning System">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Cleaning System</h5>
+                                <span class="project-tag">ETL</span>
+                                <span class="project-tag">Data Pipeline</span>
+                                <span class="project-tag">Automation</span>
+                                <p class="card-text">Comprehensive data cleaning and preprocessing pipeline for preparing datasets for machine learning and analytics.</p>
+                                <div class="tech-stack">
+                                    <span class="tech-item">Python</span>
+                                    <span class="tech-item">Pandas</span>
+                                    <span class="tech-item">NumPy</span>
+                                    <span class="tech-item">Data Wrangling</span>
+                                    <span class="tech-item">ETL</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/kasumbamunashe/Data-Cleaning-and-Preprocessing" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section section-bg">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Education & Certifications</h2>
+                <div class="row">
+                    <div class="col-lg-6 mb-4" data-aos="fade-right">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-graduation-cap me-2" style="color: var(--primary-color);"></i> Formal Education
+                            </div>
+                            <div class="card-body">
+                                <h5>Bachelor of Science in Data Science and Informatics</h5>
+                                <p class="text-muted">Midlands State University | 2021 - 2025</p>
+                                <p>Specialized in machine learning, statistical analysis, and data engineering. Completed coursework in advanced algorithms, database systems, and predictive modeling with distinction.</p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,36 +847,95 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="my-5" data-aos="fade-up">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-                <h2 class="mb-4">Contact</h2>
-                <p>Let's connect! Feel free to reach out for collaborations or opportunities.</p>
-                <p>Email: <a href="mailto:jfish4835@gmail.com">jfish4835@gmail.com</a></p>
-                <p>GitHub: <a href="https://github.com/kasumbamunashe">https://github.com/kasumbamunashe</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin">linkedin.com/in/yourlinkedin</a></p>
-                <a href="mailto:jfish4835@gmail.com" class="btn btn-primary mt-3">Send Me an Email</a>
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body p-5">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="contact-info">
+                                            <i class="fas fa-envelope"></i>
+                                            <div>
+                                                <h5>Email</h5>
+                                                <a href="mailto:jfish4835@gmail.com">jfish4835@gmail.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info">
+                                            <i class="fas fa-phone-alt"></i>
+                                            <div>
+                                                <h5>Phone</h5>
+                                                <a href="tel:+263777123456">+263 77 712 3456</a>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div>
+                                                <h5>Location</h5>
+                                                <p>8465 Unit K, Seke, Chitungwiza, Zimbabwe</p>
+                                            </div>
+                                        </div>
+                                        <div class="social-links mt-4">
+                                            <a href="https://github.com/kasumbamunashe" target="_blank"><i class="fab fa-github"></i></a>
+                                            <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="https://twitter.com/yourtwitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                                            <a href="mailto:jfish4835@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <form>
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="text" class="form-control" placeholder="Subject">
+                                            </div>
+                                            <div class="mb-3">
+                                                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Munashe Kasumba. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/kasumbamunashe" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:jfish4835@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h4>Munashe Kasumba</h4>
+                    <p>Full Stack Developer & Data Scientist</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-links mt-3 mt-md-0">
+                        <a href="https://github.com/kasumbamunashe" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/yourtwitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:jfish4835@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Munashe Kasumba. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="btn btn-primary btn-lg back-to-top" title="Go to top">↑</button>
+    <button id="back-to-top" class="btn btn-primary back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -253,20 +943,46 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
 
         // Back to Top Button
         const backToTopButton = document.getElementById("back-to-top");
         window.onscroll = () => {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "flex";
             } else {
                 backToTopButton.style.display = "none";
             }
         };
         backToTopButton.addEventListener("click", () => {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
