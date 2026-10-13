@@ -6,165 +6,131 @@
 <title>Munashe Jimfish Kasumba | Web and Software Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,800&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FFFFFF; --card:#F3F8F1; --ink:#101010; --muted:#4D4D4D; --rule:#D5E3CF;
-  --green:#006B3F; --amber:#FFD200; --amber-bg:#FFF3B0;
-  --display:'Archivo','Segoe UI',Arial,sans-serif;
-  --body:'Archivo','Segoe UI',Arial,sans-serif;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#FDFCF6;--bar:#F5F2E8;--ink:#111111;--muted:#55554D;--rule:#DDD8C8;--card:#FFFFFF;--gold:#E3B23C;--green:#006B3F;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Jost','Segoe UI',Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--paper:#FFFFFF;--card:#F3F8F1;--ink:#101010;--muted:#4D4D4D;--rule:#D5E3CF;--green:#006B3F;--amber:#FFD200;--amber-bg:#FFF3B0}
-}
-:root[data-theme="dark"]{--paper:#FFFFFF;--card:#F3F8F1;--ink:#101010;--muted:#4D4D4D;--rule:#D5E3CF;--green:#006B3F;--amber:#FFD200;--amber-bg:#FFF3B0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101510;--bar:#161C16;--ink:#F4F1E6;--muted:#A9B2A5;--rule:#2A332A;--card:#172017;--green:#4CC38A}}
+:root[data-theme="dark"]{--bg:#101510;--bar:#161C16;--ink:#F4F1E6;--muted:#A9B2A5;--rule:#2A332A;--card:#172017;--green:#4CC38A}
 *,*::before,*::after{box-sizing:border-box}
-.light{--paper:#FFFFFF;--card:#F1F8F4;--ink:#0C1F17;--muted:#4A6355;--rule:#CFE3D7;--green:#0F6B45;--amber:#18A06A;--amber-bg:#D8F5E5;background:var(--paper);color:var(--ink);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
- .dark{--paper:#006B3F;--card:#00522F;--ink:#FFFFFF;--muted:#CDE8D8;--rule:#2F8A62;--green:#FFD200;--amber:#FFD200;--amber-bg:#00522F;background:var(--paper);color:var(--ink);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
-a{color:var(--green);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--sans)}
+a{color:var(--green)}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
-nav .logo{font:800 1.25rem var(--display);text-decoration:none;color:var(--ink)}
-nav ul{list-style:none;display:flex;gap:1.5rem;margin:0;padding:0}
-nav ul a{color:var(--muted);text-decoration:none;font-weight:500}
-nav ul a:hover{color:var(--ink)}
-h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0}
-.hero{display:grid;grid-template-columns:1fr;gap:clamp(2.5rem,5vw,3.5rem);justify-items:center;text-align:center;padding:clamp(2.5rem,7vw,5.5rem) 0}
-h1{font-size:clamp(2.6rem,7vw,4.9rem);font-weight:800;letter-spacing:-.03em;margin:0 auto;max-width:17ch}
-.lede{max-width:34rem;color:var(--muted);font-size:1.15rem;margin:1.5rem auto 2rem}
-.btns{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
-.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--green)}
-.btn.primary{background:var(--green);color:var(--paper)}
-.btn.ghost{color:var(--green)}
-.btn:hover{transform:translateY(-2px)}
-.btn{transition:transform .15s}
-/* ledger statement: the page's one memorable object */
-.ledger{background:var(--card);border:2px solid var(--ink);border-radius:6px;box-shadow:8px 8px 0 var(--amber);overflow:hidden;width:100%;max-width:520px;text-align:left}
-.ledger header{display:flex;justify-content:space-between;padding:.8rem 1.1rem;background:var(--ink);color:var(--paper);font:600 .9rem var(--body)}
-.ledger table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.ledger th,.ledger td{padding:.7rem 1.1rem;text-align:left;border-bottom:1px solid var(--rule);font-size:.98rem;vertical-align:top}
-.ledger th{width:36%;color:var(--muted);font-weight:500}
-.ledger td{font-weight:600}
-.ledger tfoot td{background:var(--amber-bg);border:0;border-top:2px solid var(--ink);color:var(--ink)}
-.ledger tr.row{opacity:0;transform:translateY(8px);animation:post .5s forwards}
-@keyframes post{to{opacity:1;transform:none}}
-.ledger tr.row:nth-child(1){animation-delay:.1s}.ledger tr.row:nth-child(2){animation-delay:.25s}
-.ledger tr.row:nth-child(3){animation-delay:.4s}.ledger tr.row:nth-child(4){animation-delay:.55s}.ledger tr.row:nth-child(5){animation-delay:.7s}
-section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:2px solid var(--rule)}
-h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1.5rem}
+nav{background:var(--bar);padding:1rem clamp(1.25rem,5vw,2.5rem);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+nav .logo{font:600 1.35rem var(--serif);color:var(--ink);text-decoration:none}
+nav ul{list-style:none;display:flex;gap:1.6rem;margin:0;padding:0}
+nav ul a{color:var(--ink);text-decoration:none;font:500 .82rem var(--sans);text-transform:uppercase;letter-spacing:.05em}
+nav ul a:hover{color:var(--green)}
+.hero{text-align:center;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.25rem,5vw,2.5rem) 0}
+h1{margin:0 auto;font:700 clamp(2.3rem,6.4vw,4.9rem)/1.03 var(--serif);letter-spacing:-.02em;max-width:15em}
+h1 .it{display:block;font-style:italic;font-weight:800}
+.ring{position:relative;display:inline-block}
+.ring svg{position:absolute;left:-12%;top:-14%;width:124%;height:128%;pointer-events:none}
+.sub{margin:1.6rem auto 0;max-width:46rem;font:600 clamp(.95rem,1.8vw,1.3rem)/1.35 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.sub b{color:var(--green);font-weight:600}
+.pill{display:inline-block;margin-top:1.8rem;padding:.85rem 2.2rem;border:2px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;font:600 .8rem var(--sans);text-transform:uppercase;letter-spacing:.07em;transition:background .15s,color .15s}
+.pill:hover{background:var(--ink);color:var(--bg)}
+.loc{display:flex;justify-content:center;align-items:center;gap:.4rem;margin-top:1.6rem;font:500 .78rem var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.stage{display:flex;justify-content:center;align-items:flex-start;gap:2rem;margin-top:2.6rem;overflow:hidden;padding:0 1rem}
+.win{background:#fff;border-radius:10px 10px 0 0;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.2);flex:none;height:310px;color:#111;text-align:left}
+.win.main{width:min(560px,92vw);height:340px}
+.win.side{width:360px;margin-top:34px}
+.win.side:first-child{margin-left:-150px}.win.side:last-child{margin-right:-150px}
+.bar{background:#26262B;display:flex;align-items:center;gap:5px;padding:7px 10px}
+.bar i{width:7px;height:7px;border-radius:50%;background:#FF5F57}.bar i:nth-child(2){background:#FEBC2E}.bar i:nth-child(3){background:#28C840}
+.bar span{margin-left:10px;font:400 10px var(--sans);color:#B8B8C0}
+.pg{padding:30px;height:100%}
+.pg h4{margin:0 0 6px;font:700 1.7rem/1.1 var(--serif)}
+.pg p{margin:0 0 16px;font:400 .85rem/1.4 var(--sans);opacity:.85}
+.pg u{display:inline-block;padding:7px 16px;font:600 .7rem var(--sans);text-decoration:none;letter-spacing:.05em;text-transform:uppercase}
+section{padding:clamp(3rem,7vw,5rem) 0}
+h2{margin:0 0 1.6rem;font:700 clamp(1.9rem,4vw,2.8rem)/1.1 var(--serif);letter-spacing:-.01em}
 .two{display:grid;grid-template-columns:1fr 2fr;gap:2rem}
 .two p{margin:0 0 1rem;max-width:42rem}
-.work{display:grid;gap:1.25rem}
-.job{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;padding:1.5rem;background:var(--card);border-left:6px solid var(--green);border-radius:4px}
-.job:nth-child(even){border-left-color:var(--amber)}
-.job h3{font-size:1.4rem;font-weight:700}
-.job .kind{color:var(--muted);font-size:.95rem;margin-top:.35rem}
-.job p{margin:0 0 .9rem}
-.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
-.tags li{padding:.2rem .7rem;border:1px solid var(--rule);border-radius:999px;font-size:.9rem;color:var(--muted);background:var(--paper)}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:1.5rem}
+.card h3{margin:0;font:700 1.35rem/1.2 var(--serif)}
+.card .kind{margin:.3rem 0 .9rem;font-size:.95rem}
+.card p{margin:0 0 .9rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;margin:0;padding:0}
+.tags li{padding:.15rem .7rem;border:1px solid var(--rule);border-radius:999px;font-size:.85rem;color:var(--muted)}
 .stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5rem}
-.stack h3{font-size:1.1rem;margin-bottom:.6rem}
+.stack h3{margin:0 0 .5rem;font:700 1.2rem var(--serif)}
 .stack ul{margin:0;padding-left:1.1rem;color:var(--muted)}
-.contact a.big{font:700 clamp(1.5rem,4vw,2.4rem) var(--display);word-break:break-word}
-footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem;border-top:2px solid var(--rule)}
-@media (max-width:760px){
-  .hero,.two,.job{grid-template-columns:1fr}
-  .ledger{box-shadow:5px 5px 0 var(--amber)}
-}
-@media (prefers-reduced-motion:reduce){
-  .ledger tr.row{animation:none;opacity:1;transform:none}
-  html{scroll-behavior:auto}.btn{transition:none}
-}
+.band{background:#006B3F;color:#fff;text-align:center;padding:clamp(3rem,7vw,5rem) 1.25rem 2.5rem}
+.band h2{color:#fff;margin-bottom:1rem}
+.band a.big{font:800 clamp(1.4rem,4vw,2.4rem) var(--serif);font-style:italic;color:#FFD200;word-break:break-word}
+.band a:focus-visible{outline-color:#FFD200}
+.band small{display:block;margin-top:3rem;color:#CDE8D8;font-size:.9rem}
+@media (max-width:900px){.win.side{display:none}.two{grid-template-columns:1fr}nav ul{gap:1rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill{transition:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav aria-label="Main">
-    <a class="logo" href="#top">Munashe Jimfish Kasumba</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav aria-label="Main">
+  <a class="logo" href="#top">Munashe Jimfish Kasumba</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <main id="top">
-    <div class="hero">
-      <div>
-        <h1>I build websites and web apps with solid systems behind them.</h1>
-        <p class="lede">I'm Munashe Jimfish Kasumba, a software developer in Zimbabwe. My sites and web apps run on Java and Spring Boot backends that handle money, records and reports without surprises.</p>
-        <div class="btns">
-          <a class="btn primary" href="#work">See my work</a>
-          <a class="btn ghost" href="#contact">Get in touch</a>
-        </div>
-      </div>
-      <div class="ledger" role="group" aria-label="Summary of Munashe Jimfish Kasumba">
-        <header><span>Developer statement</span><span>Current</span></header>
-        <table>
-          <tbody>
-            <tr class="row"><th scope="row">Role</th><td>Software Developer</td></tr>
-            <tr class="row"><th scope="row">Work</th><td>Freelance</td></tr>
-            <tr class="row"><th scope="row">Based in</th><td>Zimbabwe</td></tr>
-            <tr class="row"><th scope="row">Core stack</th><td>Java, Spring Boot, MySQL</td></tr>
-            <tr class="row"><th scope="row">Also</th><td>JasperReports, CI/CD, Python</td></tr>
-          </tbody>
-          <tfoot><tr><td colspan="2">Taking on website projects</td></tr></tfoot>
-        </table>
-      </div>
+<main id="top">
+  <div class="hero">
+    <h1>I <span class="ring">build<svg viewBox="0 0 170 64" preserveAspectRatio="none" aria-hidden="true"><path d="M10 34 C6 12 70 2 118 8 C165 14 172 40 120 54 C70 66 14 56 10 36 C8 26 22 18 40 14" fill="none" stroke="#E3B23C" stroke-width="3.5" stroke-linecap="round"/></svg></span> a website that <span class="it">keeps your business open.</span></h1>
+    <p class="sub">Providing <b>websites, online shops and web platforms</b> to businesses, schools and non-profits in Zimbabwe</p>
+    <a class="pill" href="#work">See my work</a>
+    <div class="loc"><svg width="14" height="18" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 0C3.1 0 0 3.1 0 7c0 5 7 11 7 11s7-6 7-11c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 7 4.500 2.500 2.500 0 0 1 7 9.500z" fill="#E3B23C"/></svg>Working from Zimbabwe</div>
+    <div class="stage">
+      <div class="win side"><div class="bar"><i></i><i></i><i></i><span>ehs.ac.zw</span></div><div class="pg" style="background:#0A1931;color:#fff"><h4>Emmanuel High School</h4><p>A Christian boarding school in Nyanga, Zimbabwe.</p><u style="background:#fff;color:#0A1931">Apply now</u></div></div>
+      <div class="win main"><div class="bar"><i></i><i></i><i></i><span>mwanangu.shop</span></div><div class="pg" style="background:#F7ECE2;color:#3B2A1E"><h4>Mwana &amp; Co Baby Boutique</h4><p>A small, carefully picked range of baby and toddler clothes, delivered across Zimbabwe. Pay with EcoCash, USD or ZiG.</p><u style="background:#C8956C;color:#fff">Shop by age</u></div></div>
+      <div class="win side"><div class="bar"><i></i><i></i><i></i><span>links.co.zw</span></div><div class="pg" style="background:#FF6B00;color:#fff"><h4>Your career starts with the right link.</h4><p>Industrial attachment for tertiary students.</p><u style="background:#fff;color:#C24E00">Get started</u></div></div>
     </div>
-    <section id="about">
-      <div class="two">
-        <h2>About</h2>
-        <div>
-          <p>I'm a freelance software developer in Zimbabwe. I build websites and web platforms for businesses, schools and non-profits, and I'm most at home on Java and Spring Boot backends, where accuracy matters more than anything else.</p>
-          <p>My day-to-day covers new backend features, financial reports in JasperReports, database work, build and deployment pipelines, and security hardening. Before software engineering became my main focus, I studied data science and still reach for Python, Pandas and Scikit-learn when a problem is about data.</p>
-        </div>
-      </div>
-    </section>
+  </div>
 
-    <section id="work">
-      <h2>Selected work</h2>
-      <div class="work">
-        <article class="job"><div><h3>Emmanuel High School</h3><div class="kind"><a href="https://ehs.ac.zw" target="_blank" rel="noopener">ehs.ac.zw</a></div></div><div><p>A website for a boarding school in Nyanga, with admissions information, news and events, a revision portal and a link to the parent portal.</p><ul class="tags"><li>School website</li><li>Admissions</li><li>Portals</li></ul></div></article>
-        <article class="job"><div><h3>Emmanuel High School Portal</h3><div class="kind"><a href="https://portal.ehs.ac.zw" target="_blank" rel="noopener">portal.ehs.ac.zw</a></div></div><div><p>A school portal for student records, results and school fees.</p><ul class="tags"><li>Web app</li><li>Student records</li><li>Fees</li></ul></div></article>
-        <article class="job"><div><h3>Links Zimbabwe</h3><div class="kind"><a href="https://links.co.zw" target="_blank" rel="noopener">links.co.zw</a></div></div><div><p>A platform that connects tertiary students with employers for industrial attachment. It includes a CV builder, a structured assessment, application tracking and a recruiter portal.</p><ul class="tags"><li>Web platform</li><li>Student and recruiter portals</li><li>Assessments</li></ul></div></article>
-        <article class="job"><div><h3>La Patrona Foundation</h3><div class="kind"><a href="https://lapatronafoundation.org" target="_blank" rel="noopener">lapatronafoundation.org</a></div></div><div><p>A website for a Harare non-profit, covering education scholarships, migrant support and community programmes, with clear ways to donate and volunteer.</p><ul class="tags"><li>Non-profit</li><li>Website</li></ul></div></article>
-        <article class="job"><div><h3>Mwana &amp; Co Baby Boutique</h3><div class="kind"><a href="https://mwanangu.shop" target="_blank" rel="noopener">mwanangu.shop</a></div></div><div><p>An online shop for baby and toddler clothes, delivered across Zimbabwe, with payment by EcoCash, USD or ZiG.</p><ul class="tags"><li>E-commerce</li><li>Mobile money</li></ul></div></article>
-        <article class="job"><div><h3>All Things Home</h3><div class="kind"><a href="https://allthingshome.net" target="_blank" rel="noopener">allthingshome.net</a></div></div><div><p>An online store for heritage kitchenware, home decor and bedding, based in Mutare.</p><ul class="tags"><li>E-commerce</li><li>Website</li></ul></div></article>
-        <article class="job">
-          <div><h3>TB drug resistance genomics</h3><div class="kind">Bioinformatics project</div></div>
-          <div>
-            <p>Genomic analysis of tuberculosis drug resistance, working with the BashTheBug and CRyPTIC data.</p>
-            <ul class="tags"><li>Python</li><li>Pandas</li><li>Data analysis</li></ul>
-          </div>
-        </article>
-      </div>
-    </section>
+  <section id="work"><div class="wrap">
+    <h2>Selected work</h2>
+    <div class="work">
+      <article class="card"><h3>Emmanuel High School</h3><div class="kind"><a href="https://ehs.ac.zw" target="_blank" rel="noopener">ehs.ac.zw</a></div><p>A website for a boarding school in Nyanga, with admissions information, news and events, a revision portal and a link to the parent portal.</p><ul class="tags"><li>School website</li><li>Admissions</li><li>Portals</li></ul></article>
+      <article class="card"><h3>Emmanuel High School Portal</h3><div class="kind"><a href="https://portal.ehs.ac.zw" target="_blank" rel="noopener">portal.ehs.ac.zw</a></div><p>A school portal for student records, results and school fees.</p><ul class="tags"><li>Web app</li><li>Student records</li><li>Fees</li></ul></article>
+      <article class="card"><h3>Links Zimbabwe</h3><div class="kind"><a href="https://links.co.zw" target="_blank" rel="noopener">links.co.zw</a></div><p>A platform that connects tertiary students with employers for industrial attachment. It includes a CV builder, a structured assessment, application tracking and a recruiter portal.</p><ul class="tags"><li>Web platform</li><li>Student and recruiter portals</li><li>Assessments</li></ul></article>
+      <article class="card"><h3>La Patrona Foundation</h3><div class="kind"><a href="https://lapatronafoundation.org" target="_blank" rel="noopener">lapatronafoundation.org</a></div><p>A website for a Harare non-profit, covering education scholarships, migrant support and community programmes, with clear ways to donate and volunteer.</p><ul class="tags"><li>Non-profit</li><li>Website</li></ul></article>
+      <article class="card"><h3>Mwana &amp; Co Baby Boutique</h3><div class="kind"><a href="https://mwanangu.shop" target="_blank" rel="noopener">mwanangu.shop</a></div><p>An online shop for baby and toddler clothes, delivered across Zimbabwe, with payment by EcoCash, USD or ZiG.</p><ul class="tags"><li>E-commerce</li><li>Mobile money</li></ul></article>
+      <article class="card"><h3>All Things Home</h3><div class="kind"><a href="https://allthingshome.net" target="_blank" rel="noopener">allthingshome.net</a></div><p>An online store for heritage kitchenware, home decor and bedding, based in Mutare.</p><ul class="tags"><li>E-commerce</li><li>Website</li></ul></article>
+      <article class="card"><h3>TB drug resistance genomics</h3><div class="kind">Bioinformatics project</div><p>Genomic analysis of tuberculosis drug resistance, working with the BashTheBug and CRyPTIC data.</p><ul class="tags"><li>Python</li><li>Pandas</li><li>Data analysis</li></ul></article>
+    </div>
+  </div></section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="stack">
-        <div><h3>Backend</h3><ul><li>Java</li><li>Spring Boot</li><li>Microservices</li><li>REST APIs</li></ul></div>
-        <div><h3>Data</h3><ul><li>MySQL</li><li>SQL Server (legacy systems)</li><li>JasperReports</li></ul></div>
-        <div><h3>DevOps and security</h3><ul><li>Jenkins</li><li>Docker</li><li>GitLab</li><li>Security hardening</li></ul></div>
-        <div><h3>Data science</h3><ul><li>Python</li><li>Pandas and NumPy</li><li>Scikit-learn</li></ul></div>
-      </div>
-    </section>
+  <section id="about" style="padding-top:0"><div class="wrap two">
+    <h2>About</h2>
+    <div>
+      <p>I'm a freelance software developer in Zimbabwe. I build websites and web platforms for businesses, schools and non-profits, and I'm most at home on Java and Spring Boot backends, where accuracy matters more than anything else.</p>
+      <p>My day-to-day covers new backend features, financial reports in JasperReports, database work, build and deployment pipelines, and security hardening. Before software engineering became my main focus, I studied data science and still reach for Python, Pandas and Scikit-learn when a problem is about data.</p>
+    </div>
+  </div></section>
 
-    <section id="contact" class="contact dark">
-      <h2>Contact</h2>
-      <p>Want to work together or just talk shop? Send me an email.</p>
-      <p><a class="big" href="mailto:kasumbamunashe5@gmail.com">kasumbamunashe5@gmail.com</a></p>
-      
-    </section>
-  </main>
+  <section id="skills" style="padding-top:0"><div class="wrap">
+    <h2>Skills</h2>
+    <div class="stack">
+      <div><h3>Backend</h3><ul><li>Java</li><li>Spring Boot</li><li>Microservices</li><li>REST APIs</li></ul></div>
+      <div><h3>Data</h3><ul><li>MySQL</li><li>SQL Server (legacy systems)</li><li>JasperReports</li></ul></div>
+      <div><h3>DevOps and security</h3><ul><li>Jenkins</li><li>Docker</li><li>GitLab</li><li>Security hardening</li></ul></div>
+      <div><h3>Data science</h3><ul><li>Python</li><li>Pandas and NumPy</li><li>Scikit-learn</li></ul></div>
+    </div>
+  </div></section>
 
-  <footer class="dark">Munashe Jimfish Kasumba, Software Developer, Zimbabwe</footer>
-</div>
+  <div class="band" id="contact">
+    <h2>Have a website in mind?</h2>
+    <a class="big" href="mailto:kasumbamunashe5@gmail.com">kasumbamunashe5@gmail.com</a>
+    <small>Munashe Jimfish Kasumba, Software Developer, Zimbabwe</small>
+  </div>
+</main>
 </body>
 </html>
